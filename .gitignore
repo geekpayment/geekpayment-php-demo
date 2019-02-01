@@ -1,0 +1,8 @@
+.idea
+refs
+objects
+.git
+hooks
+info
+FETCH_HEAD
+HEAD
