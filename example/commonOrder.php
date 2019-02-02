@@ -62,6 +62,6 @@ $result = GeekPayApi::commonOrder($input);
         立即支付
     </button>
 </div>
-
+<pre><?php echo json_encode($result) ?></pre>
 </body>
 </html>
