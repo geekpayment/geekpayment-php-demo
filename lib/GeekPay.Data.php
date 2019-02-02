@@ -22,6 +22,7 @@ class GeekPayDataBase
     {
         return $this->bodyValues[$key];
     }
+
     /**
      * 设置随机字符串，不长于30位。推荐随机数生成算法
      * @param string $value
@@ -217,11 +218,12 @@ class GeekPayResults extends GeekPayDataBase
     /**
      *
      * 使用数组初始化
-     * @param array $array
+     * @param string $json
      */
-    public function fromArray($array)
+    public function fromJson($json)
     {
-        $this->bodyValues = json_decode($array, true);
+        $resp = json_decode($json, true);
+        $this->bodyValues = $resp['data'];
     }
 
     /**
@@ -234,10 +236,10 @@ class GeekPayResults extends GeekPayDataBase
      * --------------------------------------
      * --------------------------------------
      */
-    public static function init($array)
+    public static function init($json)
     {
         $obj = new self();
-        $obj->fromArray($array);
+        $obj->fromJson($json);
         return $obj->getBodyValues();
     }
 }
