@@ -242,6 +242,7 @@ class GeekPayApi
      */
     private static function getJsonCurl($url, $inputObj, $second = 30)
     {
+        error_log("requesting url [GET]$url");
         $ch = curl_init();
         //设置超时
         curl_setopt($ch, CURLOPT_TIMEOUT, $second);
@@ -285,6 +286,7 @@ class GeekPayApi
      */
     private static function putJsonCurl($url, $inputObj, $second = 30)
     {
+        error_log("requesting url [PUT]$url");
         $ch = curl_init();
         //设置超时
         curl_setopt($ch, CURLOPT_TIMEOUT, $second);
