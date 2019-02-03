@@ -13,7 +13,6 @@ $log = Log::Init($logHandler, 15);
 $response = json_decode(file_get_contents('php://input', 'r'), true);
 $input = new GeekPayDataBase();
 $input->setNonceStr($response['nonce_str']);
-$input->setTime($response['time']);
 $url='https://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"];
 $input->setSign($url);
 if ($input->getSign() == $response['sign']) {//验证成功

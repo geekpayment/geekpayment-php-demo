@@ -34,7 +34,7 @@ class GeekPayDataBase
 
     /**
      * 获取随机字符串，不长于30位。推荐随机数生成算法的值
-     * @return 值
+     * @return string 值
      **/
     public function getNonceStr()
     {
@@ -48,33 +48,6 @@ class GeekPayDataBase
     public function isNonceStrSet()
     {
         return array_key_exists('nonce_str', $this->queryValues);
-    }
-
-    /**
-     * 设置时间戳
-     * @param long $value
-     **/
-    public function setTime($value)
-    {
-        $this->queryValues['time'] = $value;
-    }
-
-    /**
-     * 获取时间戳
-     * @return 值
-     **/
-    public function getTime()
-    {
-        return $this->queryValues['time'];
-    }
-
-    /**
-     * 判断时间戳是否存在
-     * @return true 或 false
-     **/
-    public function isTimeSet()
-    {
-        return array_key_exists('time', $this->queryValues);
     }
 
     /**
