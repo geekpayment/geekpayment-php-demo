@@ -229,7 +229,7 @@ class GeekPayResults extends GeekPayDataBase
     /**
      * 将json转为array
      * @param string $json
-     * @throws GeekPayException
+     * @return array
      *
      * 返回信息:
      * return_code          return_msg
@@ -239,6 +239,7 @@ class GeekPayResults extends GeekPayDataBase
     public static function init($json)
     {
         $obj = new self();
+        error_log("GeekPayment response:$json");
         $obj->fromJson($json);
         return $obj->getBodyValues();
     }
