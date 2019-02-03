@@ -86,12 +86,13 @@ class GeekPayDataBase
     {
         $sign = $this->makeSign($url);
         $this->queryValues['sign'] = $sign;
+        $this->queryValues['sign_type'] = 'RSA2';
         return $sign;
     }
 
     /**
      * 获取签名，详见签名生成算法的值
-     * @return 值
+     * @return string 值
      **/
     public function getSign()
     {
