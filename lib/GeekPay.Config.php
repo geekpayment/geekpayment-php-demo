@@ -42,6 +42,7 @@ class GeekPayConfig
     {
         $cfg_path = $_SERVER['API_PARAMS'];
         $cfg = parse_ini_file($cfg_path, true);
+        error_log("loaded config:".json_encode($cfg));
         return $cfg['geekpayment'];
     }
 
