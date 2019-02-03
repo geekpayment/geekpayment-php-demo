@@ -19,7 +19,7 @@ class GeekPayConfig
      */
     public static function getAppId()
     {
-        return getenv('GEEKPAYMENT_APPID');
+        return self::loadParams()['appid'];
     }
 
     /**
@@ -27,7 +27,7 @@ class GeekPayConfig
      */
     public static function getPrivateKeyString()
     {
-        return getenv('GEEKPAYMENT_PRIVATE_KEY');
+        return self::loadParams()['private_key'];
     }
 
     /**
@@ -35,7 +35,14 @@ class GeekPayConfig
      */
     public static function getPublicKeyString()
     {
-        return getenv('GEEKPAYMENT_PUBLIC_KEY');
+        return self::loadParams()['public_key'];
+    }
+
+    private static function loadParams()
+    {
+        $cfg_path = getenv('API_PARAMS');
+        $cfg = parse_ini_file($cfg_path, true);
+        return $cfg['geekpayment'];
     }
 
     const GEEK_HOST = 'https://api.geekpayment.com';
