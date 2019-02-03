@@ -40,7 +40,7 @@ class GeekPayConfig
 
     private static function loadParams()
     {
-        $cfg_path = getenv('API_PARAMS');
+        $cfg_path = $_SERVER['API_PARAMS'];
         $cfg = parse_ini_file($cfg_path, true);
         return $cfg['geekpayment'];
     }
