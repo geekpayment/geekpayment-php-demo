@@ -133,6 +133,7 @@ class GeekPayDataBase
         $signBase = $this->toSignParams($url, $this->getNonceStr(), $this->bodyValues);
         //签名步骤二：SHA256withRSA签名
         $sign = openssl_sign($signBase, $sign, self::getPrivateKey(), OPENSSL_ALGO_SHA256) ? base64_encode($sign) : null;
+        error_log("sign_base=$signBase\r\n\r\nsign=$sign");
         return $sign;
     }
 
