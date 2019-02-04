@@ -101,7 +101,7 @@ class GeekPayDataBase
      */
     public function toBodyParams()
     {
-        return json_encode($this->bodyValues);
+        return json_encode($this->bodyValues, JSON_UNESCAPED_SLASHES);
     }
 
     /**
@@ -118,7 +118,7 @@ class GeekPayDataBase
         $tmpBody['sign_type'] = 'RSA2';
         $tmpBody['nonce_str'] = $nonceStr;
         ksort($tmpBody);
-        $buff = json_encode($tmpBody);
+        $buff = json_encode($tmpBody,JSON_UNESCAPED_SLASHES);
         return $buff;
     }
 
