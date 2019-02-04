@@ -132,7 +132,9 @@ class GeekPayDataBase
         //签名步骤一：构造签名参数
         $signBase = $this->toSignParams($url, $this->getNonceStr(), $this->bodyValues);
         //签名步骤二：SHA256withRSA签名
-        $sign = openssl_sign($signBase, $sign, self::getPrivateKey(), OPENSSL_ALGO_SHA256) ? base64_encode($sign) : null;
+        $priv_key_id = self::getPrivateKey();
+        error_log("privkey:$priv_key_id");
+        $sign = openssl_sign($signBase, $sign, $priv_key_id, OPENSSL_ALGO_SHA256) ? base64_encode($sign) : null;
         error_log("sign_base=$signBase\r\n\r\nsign=$sign");
         return $sign;
     }
@@ -143,7 +145,9 @@ class GeekPayDataBase
             return false;
         }
         $signBase = $this->toSignParams($url, $bodyValue['nonce_str'], $bodyValue);
-        return (bool)openssl_verify($signBase, base64_decode($sign), self::getPublicKey(), OPENSSL_ALGO_SHA256);
+        $pub_key_id = self::getPublicKey();
+        error_log("public_key:$pub_key_id");
+        return (bool)openssl_verify($signBase, base64_decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256);
     }
 
     private function getPrivateKey()
