@@ -152,12 +152,12 @@ class GeekPayDataBase
 
     private function getPrivateKey()
     {
-        return openssl_pkey_get_private(GeekPayConfig::getPrivateKeyString());
+        return GeekPayConfig::getPrivateKeyString();
     }
 
     private function getPublicKey()
     {
-        return openssl_pkey_get_public(GeekPayConfig::getPublicKeyString());
+        return GeekPayConfig::getPublicKeyString();
     }
 
     /**
