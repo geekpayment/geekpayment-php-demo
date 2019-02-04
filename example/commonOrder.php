@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
@@ -11,20 +9,20 @@
         }
     </script>
     <style>
-	  .lnk{
-	      display:block;
-		  width:210px;
-		  height:50px;
-		  border-radius:15px;
-		  background-color:#fe6714;
-		  color:#fff;
-		  text-align:center;
-		  font-size:16px;
-		  line-height:50px;
-		  text-decoration:none;
-		  margin:15px auto;
-	  }
-	</style>
+        .lnk {
+            display: block;
+            width: 210px;
+            height: 50px;
+            border-radius: 15px;
+            background-color: #fe6714;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            line-height: 50px;
+            text-decoration: none;
+            margin: 15px auto;
+        }
+    </style>
 </head>
 <body>
 <br/>
@@ -54,12 +52,18 @@ $result = GeekPayApi::commonOrder($input);
 <font color="#9ACD32"><b>该笔订单支付金额为<span style="color:#f00;font-size:50px">1.00</span>元</b></font><br/><br/>
 <div align="center">
     <button
-        style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;"
-        type="button"
-        onclick="redirect('<?php echo $result['pay_url']; ?>')">
+            style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;"
+            type="button"
+            onclick="redirect('<?php echo $result['pay_url']; ?>')">
         立即支付
     </button>
 </div>
-<pre><?php echo json_encode($result) ?></pre>
+<div>
+    Request Body:
+    <pre><?php echo json_encode($input->getBodyValues(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?></pre>
+</div>
+<div>Response:
+    <pre><?php echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?></pre>
+</div>
 </body>
 </html>
