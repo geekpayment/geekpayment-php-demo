@@ -25,7 +25,7 @@ class GeekPayConfig
     /**
      * 对接方自行生成的RSA密钥对私钥（公钥提交给GeekPayment)
      */
-    public static function getPrivateKeyString()
+    public static function getPrivateKeyFile()
     {
         return '';
     }
@@ -33,7 +33,7 @@ class GeekPayConfig
     /**
      * GeekPayment发回的验证公钥
      */
-    public static function getPublicKeyString()
+    public static function getPublicKeyFile()
     {
         return '';
     }
