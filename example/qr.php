@@ -53,7 +53,6 @@ $input->setChannel($channel);
 $input->setPrice("100");
 $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
 $input->setReturnUrl('https://demophp.geekpayment.com/example/success.php?order_id=' . strval($input->getOrderId()));
-$input->setOperator("123456");
 
 $result = GeekPayApi::qrOrder($input);
 $url2 = $result["code_url"];
@@ -66,6 +65,13 @@ $url2 = $result["code_url"];
 <br/>
 <button onclick="redirect('<?php echo $result['pay_url']; ?>')">跳转
 </button>
+    <div>
+        Request Body:
+        <pre><?php echo json_encode($input->getBodyValues(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?></pre>
+    </div>
+    <div>Response:
+        <pre><?php echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?></pre>
+    </div>
 <?php
   }
 ?>
