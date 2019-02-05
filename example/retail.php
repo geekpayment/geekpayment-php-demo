@@ -30,7 +30,7 @@ $input->setOperator("123456");
 
 //支付下单
 $result = GeekPayApi::retailQRCodeOrder($input);
-$url2 = $result["code_url"];
+$url2 = $result["pay_url"];
 
 ?>
 <body>
