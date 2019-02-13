@@ -37,7 +37,6 @@ header("Content-Type:text/html;charset=utf-8");
 $logHandler = new CLogFileHandler("../logs/" . date('Y-m-d') . '.log');
 $log = Log::Init($logHandler, 15);
 
-$channel = $_GET["channel"];
 $input = new GeekPayUnifiedOrder();
 $input->setOrderId('TEST' . date("YmdHis"));
 $input->setTitle("test");
