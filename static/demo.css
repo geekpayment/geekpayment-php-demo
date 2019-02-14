@@ -1,0 +1,170 @@
+body {
+    background: #f5f5f5;
+}
+
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #1b1f23;
+    border: none;
+    min-height: 30px;
+    -webkit-transition: background-color 0.5s linear;
+    transition: background-color 0.5s linear;
+}
+
+.navbar-bg {
+    background-image: linear-gradient(to bottom, rgba(26, 28, 30, 0.88) 0, #1a1c1e 100%);
+    background-repeat: repeat-x;
+}
+
+.navbar-nav .signin {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 12px;
+    border-radius: 0;
+    background: transparent;
+    border-color: #fff;
+}
+
+.navbar-dark .navbar-brand {
+    height: 30px;
+}
+
+.navbar-dark .navbar-header .navbar-toggle .icon-bar {
+    background: #fff;
+}
+
+.navbar-dark .nav-item .nav-link {
+    font-weight: 400;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    transition: background .2s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 1rem 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    display: inline-block;
+    background: none;
+}
+
+.navbar-dark .nav-item .nav-link:hover, .navbar-dark .nav-item.active .nav-link, .navbar-dark .nav-item.active .nav-link:hover {
+    color: #fff;
+    border-color: #373a3c;
+    background: none;
+}
+
+.nav-item.open a, .nav > li > a:focus {
+    background: none;
+}
+
+.nav-link.dropdown-toggle:after {
+    content: ' ';
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    margin-bottom: 2px;
+    margin-left: 3px;
+    transform: rotate(45deg);
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, .75);
+}
+
+
+.navbar--logo {
+    height: 100%;
+}
+
+
+.navbar--line {
+    height: 30px;
+    border-right: 1px solid #fff;
+    width: 0;
+    margin: 0 20px;
+    display: inline-block;
+}
+
+.geek-nav > .navbar-brand {
+    padding: 0;
+    float: none;
+    display: inline-block;
+    margin-left: 0 !important;
+    vertical-align: top;
+}
+
+.geek-nav > .navbar-brand:first-child {
+    margin-left: -15px !important;
+}
+
+.block-container {
+    background: #fff;
+    margin-top: 80px;
+    position: relative;
+}
+
+.block-container:before {
+    content: '极客收单支付样例';
+    color: #000;
+    font-size: 18px;
+    line-height: 28px;
+    position: absolute;
+    display: block;
+    top: -40px;
+    left: 0;
+    font-weight: bold;
+}
+
+.block-container .col.api {
+    padding: 40px;
+    height: 232px;
+    text-decoration: none;
+    color: #000;
+}
+
+.block-container .col.disabled {
+    color: #888;
+}
+
+.block-container .icon {
+    width: 42px;
+    height: 42px;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.block-container .icon > img {
+    width: 100%;
+}
+
+.block-container .api .title {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 10px auto;
+}
+
+.block-container .api .desc {
+    display: block;
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.footer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}

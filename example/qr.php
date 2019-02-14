@@ -41,8 +41,8 @@ header("Content-Type:text/html;charset=utf-8");
 //获取扫码
 if(!isset($_GET["channel"])){
   ?>
-  <a href="qr.php?channel=Wechat" class="lnk" >微信</a>
-  <a href="qr.php?channel=Alipay" class="lnk" >支付宝</a>
+  <a href="qr.php?channel=wechat" class="lnk" >微信</a>
+  <a href="qr.php?channel=alipay" class="lnk" >支付宝</a>
 <?php
 }else{
 $channel = $_GET["channel"];
