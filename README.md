@@ -1,3 +1,5 @@
+API文档[https://apidoc.geekpayment.com/]
+
 # geekpayment-php-demo
 接入GeekPayment的PHP DEMO
 
