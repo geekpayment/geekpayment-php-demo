@@ -49,7 +49,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -69,7 +69,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -79,7 +79,7 @@ class GeekPayApi
      * @param GeekPayMicropayOrder $inputObj
      * @param int $timeOut
      * @throws GeekPayException
-     * @return $result 成功时返回，其他抛异常
+     * @return array $result 成功时返回，其他抛异常
      */
     public static function micropayOrder($inputObj, $timeOut = 10)
     {
@@ -89,7 +89,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -109,7 +109,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -129,7 +129,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -149,7 +149,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -169,7 +169,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -189,7 +189,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::getJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -210,7 +210,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -231,7 +231,7 @@ class GeekPayApi
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::getJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
