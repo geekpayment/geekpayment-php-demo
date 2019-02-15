@@ -159,7 +159,8 @@ class GeekPayDataBase
 
     private function getPublicKey()
     {
-        return openssl_pkey_get_public("file://" . GeekPayConfig::getPublicKeyFile());
+        $cer_key = file_get_contents("file://" . GeekPayConfig::getPublicKeyFile());
+        return openssl_x509_read($cer_key);
     }
 
     /**
