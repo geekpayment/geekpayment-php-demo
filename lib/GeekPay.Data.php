@@ -623,9 +623,9 @@ class GeekPayApplyRefund extends GeekPayDataBase
      * 设置退款金额，单位是货币最小单位
      * @param string $value
      **/
-    public function setFee($value)
+    public function setAmount($value)
     {
-        $this->bodyValues['fee'] = $value;
+        $this->bodyValues['amount'] = $value;
     }
 
     /**

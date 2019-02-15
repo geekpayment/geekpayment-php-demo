@@ -29,7 +29,7 @@ if(isset($_REQUEST["order_id"]) && $_REQUEST["order_id"] != "" && isset($_REQUES
 	$input = new GeekPayApplyRefund();
 	$input->setOrderId($_REQUEST["order_id"]);
 	$input->setRefundId($_REQUEST["refund_id"]);
-	$input->setFee($_REQUEST["fee"]);
+	$input->setAmount($_REQUEST["fee"]);
 	printf_info(GeekPayApi::refund($input));
 	exit();
 }

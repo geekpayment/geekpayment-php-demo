@@ -52,7 +52,7 @@ if (isset($_REQUEST["auth_code"]) && $_REQUEST["auth_code"] != "") {
     $refundInput = new GeekPayApplyRefund();
     $refundInput->setOrderId($input->getOrderId());
     $refundInput->setRefundId('TESTREFUND' . date("YmdHis"));
-    $refundInput->setFee($input->getPrice());
+    $refundInput->setAmount($input->getPrice());
     printf_info(GeekPayApi::refund($refundInput));
     exit();
 }
