@@ -55,6 +55,26 @@ class GeekPayApi
 
     /**
      *
+     * 快捷支付下单，nonce_str不需要填入
+     * @param GeekPayUnifiedOrder $inputObj
+     * @param int $timeOut
+     * @return array $result array GeekPayResults 成功时返回，其他抛异常
+     * @throws GeekPayException
+     */
+    public static function cashierOrder($inputObj, $timeOut = 10)
+    {
+        $appid = GeekPayConfig::getAppId();
+        $orderId = $inputObj->getOrderId();
+        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/cashier_orders/$orderId";
+        $inputObj->setNonceStr(self::getNonceStr());//随机字符串
+        $inputObj->setSign($url);
+        $response = self::putJsonCurl($url, $inputObj, $timeOut);
+        $result = GeekPayResults::init($response);
+        return $result;
+    }
+
+    /**
+     *
      * 线下支付订单，nonce_str不需要填入
      * @param GeekPayMicropayOrder $inputObj
      * @param int $timeOut

@@ -60,6 +60,15 @@
         </a>
     </div>
     <div class="row">
+        <a class="col api border-right" href="example/cashier.php">
+            <div class="icon mx-auto">
+                <img src="static/images/dingdanchaxun.png" class="mx-auto">
+            </div>
+            <div class="title">快捷支付</div>
+            <div class="desc">跳转第三方收银台，银联/微信/支付宝</div>
+        </a>
+    </div>
+    <div class="row">
         <a class="col api border-right" href="example/orderquery.php">
             <div class="icon mx-auto">
                 <img src="static/images/dingdanchaxun.png" class="mx-auto">
