@@ -26,8 +26,8 @@
     </div>
 </nav>
 <div class="container block-container border">
-    <div class="row">
-        <div class="col api border-right border-bottom">
+    <div class="row border-bottom">
+        <div class="col api border-right">
             <div class="icon mx-auto">
                 <img src="static/images/yuansheng.png" class="mx-auto">
             </div>
@@ -37,21 +37,21 @@
                 <button class="btn btn-primary btn-sm" disabled aria-disabled="true" title="暂不支持">支付宝</button>
             </div>
         </div>
-        <a class="col api border-right border-bottom" href="example/commonOrder.php">
+        <a class="col api border-right" href="example/commonOrder.php">
             <div class="icon mx-auto">
                 <img src="static/images/tongyongzhifufangshi.png" class="mx-auto">
             </div>
             <div class="title">通用支付</div>
             <div class="desc">微信/支付宝扫码或直接在微信/支付宝客户端内支付</div>
         </a>
-        <a class="col api border-right border-bottom" href="example/micropay.php">
+        <a class="col api border-right" href="example/micropay.php">
             <div class="icon mx-auto">
                 <img src="static/images/xianxia.png" class="mx-auto">
             </div>
             <div class="title">线下支付</div>
             <div class="desc">POS机扫消费者付款码</div>
         </a>
-        <a class="col api border-bottom" href="example/retail.php">
+        <a class="col api" href="example/retail.php">
             <div class="icon mx-auto">
                 <img src="static/images/xianxia.png" class="mx-auto">
             </div>
@@ -59,7 +59,7 @@
             <div class="desc">收银系统生成一次性收款码</div>
         </a>
     </div>
-    <div class="row">
+    <div class="row border-bottom">
         <a class="col api border-right" href="example/cashier.php">
             <div class="icon mx-auto">
                 <img src="static/images/dingdanchaxun.png" class="mx-auto">
