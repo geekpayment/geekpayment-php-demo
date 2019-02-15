@@ -60,7 +60,7 @@
         </a>
     </div>
     <div class="row border-bottom">
-        <a class="col api border-right" href="example/cashier.php">
+        <a class="col api" href="example/cashier.php">
             <div class="icon mx-auto">
                 <img src="static/images/dingdanchaxun.png" class="mx-auto">
             </div>
