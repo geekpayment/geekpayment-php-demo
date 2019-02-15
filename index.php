@@ -41,7 +41,7 @@
             <div class="icon mx-auto">
                 <img src="static/images/tongyongzhifufangshi.png" class="mx-auto">
             </div>
-            <div class="title">通用支付</div>
+            <div class="title">通用聚合支付</div>
             <div class="desc">微信/支付宝扫码或直接在微信/支付宝客户端内支付</div>
         </a>
         <a class="col api border-right" href="example/micropay.php">
