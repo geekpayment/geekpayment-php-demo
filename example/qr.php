@@ -55,7 +55,7 @@ $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
 $input->setReturnUrl('https://demophp.geekpayment.com/example/success.php?order_id=' . strval($input->getOrderId()));
 
 $result = GeekPayApi::qrOrder($input);
-$url2 = $result["code_url"];
+$url2 = $result["qr_code"];
 
 ?>
 <div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">方式一、扫码支付</div>
