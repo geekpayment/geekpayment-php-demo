@@ -206,11 +206,11 @@ class GeekPayResults extends GeekPayDataBase
     {
         $resp = json_decode($json, true);
         $sign = $resp['sign'];
+        $this->bodyValues = $resp['data'];
         $signValid = $this->validSign($url, $sign);
         if (!$signValid) {
             error_log("sign verify mismatch!");
         }
-        $this->bodyValues = $resp['data'];
     }
 
     /**
