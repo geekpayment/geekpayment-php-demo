@@ -61,7 +61,7 @@ $code_url = $result['code_img_url']
 ?>
 <div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">方式一、扫码支付</div>
 <br/>
-<img alt="扫码支付" src="<?php echo urlencode($url2); ?>" style="width:150px;height:150px;"/>
+<img alt="扫码支付" src="<?php echo $code_url; ?>" style="width:150px;height:150px;"/>
 <div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">方式二、跳转到极客支付</div>
 <br/>
 <button onclick="redirect('<?php echo $result['pay_url']; ?>')">跳转
