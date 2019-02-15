@@ -118,7 +118,7 @@ class GeekPayDataBase
         $tmpBody['sign_type'] = 'RSA2';
         $tmpBody['nonce_str'] = $nonceStr;
         ksort($tmpBody);
-        $buff = json_encode($tmpBody,JSON_UNESCAPED_SLASHES);
+        $buff = json_encode($tmpBody, JSON_UNESCAPED_SLASHES);
         return $buff;
     }
 
@@ -139,13 +139,15 @@ class GeekPayDataBase
         return $sign;
     }
 
-    public function validSign($url, $bodyValue, $sign)
+    public function validSign($url, $sign)
     {
         if (!is_string($sign)) {
             return false;
         }
-        $signBase = $this->toSignParams($url, $bodyValue['nonce_str'], $bodyValue);
+        $bodyValue = $this->getBodyValues();
+        $signBase = $this->toSignParams($url, $bodyValue['nonce_str'], $this->bodyValues);
         $pub_key_id = self::getPublicKey();
+        error_log("sign_base:$signBase");
         error_log("public_key:$pub_key_id");
         return (bool)openssl_verify($signBase, base64_decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256);
     }
@@ -198,16 +200,23 @@ class GeekPayResults extends GeekPayDataBase
      *
      * 使用数组初始化
      * @param string $json
+     * @param string $url
      */
-    public function fromJson($json)
+    public function fromJson($json, $url)
     {
         $resp = json_decode($json, true);
+        $sign = $resp['sign'];
+        $signValid = $this->validSign($url, $sign);
+        if (!$signValid) {
+            error_log("sign verify mismatch!");
+        }
         $this->bodyValues = $resp['data'];
     }
 
     /**
      * 将json转为array
-     * @param string $json
+     * @param string $json json data
+     * @param string $url request url
      * @return array
      *
      * 返回信息:
@@ -215,11 +224,11 @@ class GeekPayResults extends GeekPayDataBase
      * --------------------------------------
      * --------------------------------------
      */
-    public static function init($json)
+    public static function init($json, $url)
     {
         $obj = new self();
         error_log("GeekPayment response:$json");
-        $obj->fromJson($json);
+        $obj->fromJson($json, $url);
         return $obj->getBodyValues();
     }
 }

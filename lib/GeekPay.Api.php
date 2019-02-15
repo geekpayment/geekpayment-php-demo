@@ -25,11 +25,11 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/native_qr_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/native_qr_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-        $result = GeekPayResults::init($response);
+        $result = GeekPayResults::init($response, $url);
         return $result;
     }
 
@@ -45,7 +45,7 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/qr_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/qr_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
@@ -65,7 +65,7 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/cashier_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/cashier_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
@@ -85,7 +85,7 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/retail_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/retail_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
@@ -105,7 +105,7 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/retail_qr_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/retail_qr_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
@@ -121,17 +121,17 @@ class GeekPayApi
      * @return array $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
-	public static function microAppOrder($inputObj, $timeOut=10)
-	{
+    public static function microAppOrder($inputObj, $timeOut = 10)
+    {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/microapp_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/microapp_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-		$result = GeekPayResults::init($response);
-		return $result;
-	}
+        $result = GeekPayResults::init($response);
+        return $result;
+    }
 
     /**
      *
@@ -141,17 +141,17 @@ class GeekPayApi
      * @return array $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
-	public static function appOrder($inputObj, $timeOut=10)
-	{
+    public static function appOrder($inputObj, $timeOut = 10)
+    {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/app_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/app_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-		$result = GeekPayResults::init($response);
-		return $result;
-	}
+        $result = GeekPayResults::init($response);
+        return $result;
+    }
 
     /**
      *
@@ -161,17 +161,17 @@ class GeekPayApi
      * @return array $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
-	public static function h5Order($inputObj, $timeOut=10)
-	{
+    public static function h5Order($inputObj, $timeOut = 10)
+    {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/h5_orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/h5_orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
-		$result = GeekPayResults::init($response);
-		return $result;
-	}
+        $result = GeekPayResults::init($response);
+        return $result;
+    }
 
     /**
      *
@@ -185,7 +185,7 @@ class GeekPayApi
     {
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/orders/$orderId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/orders/$orderId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::getJsonCurl($url, $inputObj, $timeOut);
@@ -206,7 +206,7 @@ class GeekPayApi
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
         $refundId = $inputObj->getRefundId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/orders/$orderId/refunds/$refundId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/orders/$orderId/refunds/$refundId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::putJsonCurl($url, $inputObj, $timeOut);
@@ -227,7 +227,7 @@ class GeekPayApi
         $appid = GeekPayConfig::getAppId();
         $orderId = $inputObj->getOrderId();
         $refundId = $inputObj->getRefundId();
-        $url = GeekPayConfig::GEEK_HOST."/apps/$appid/orders/$orderId/refunds/$refundId";
+        $url = GeekPayConfig::GEEK_HOST . "/apps/$appid/orders/$orderId/refunds/$refundId";
         $inputObj->setNonceStr(self::getNonceStr());//随机字符串
         $inputObj->setSign($url);
         $response = self::getJsonCurl($url, $inputObj, $timeOut);
