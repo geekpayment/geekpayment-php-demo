@@ -208,9 +208,7 @@ class GeekPayResults extends GeekPayDataBase
         $sign = $resp['sign'];
         $this->bodyValues = $resp['data'];
         $signValid = $this->validSign($url, $sign);
-        if (!$signValid) {
-            error_log("sign verify mismatch!");
-        }
+        error_log("sign verify result:$signValid");
     }
 
     /**
