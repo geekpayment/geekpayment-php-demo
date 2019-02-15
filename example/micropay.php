@@ -42,19 +42,21 @@ if (isset($_REQUEST["auth_code"]) && $_REQUEST["auth_code"] != "") {
     $orderInput->setOrderId($input->getOrderId());
     for ($i = 0; $i < 10; $i++) {
         $orderResult = GeekPayApi::orderQuery($orderInput);
-        if ($orderResult['result_code'] == 'PAY_SUCCESS') {
+        if ($orderResult['order_status'] == 'PAY_SUCCESS') {
+            printf('支付成功：<br>');
             printf_info($orderResult);
+            //测试支付完成自动退款
+            $refundInput = new GeekPayApplyRefund();
+            $refundInput->setOrderId($input->getOrderId());
+            $refundInput->setRefundId('TESTREFUND' . date("YmdHis"));
+            $refundInput->setAmount($input->getPrice());
+            printf_info('退款:<br>');
+            printf_info(GeekPayApi::refund($refundInput));
             exit();
         }
     }
 
-    //失败退款
-    $refundInput = new GeekPayApplyRefund();
-    $refundInput->setOrderId($input->getOrderId());
-    $refundInput->setRefundId('TESTREFUND' . date("YmdHis"));
-    $refundInput->setAmount($input->getPrice());
-    printf_info(GeekPayApi::refund($refundInput));
-    exit();
+
 }
 
 ?>
