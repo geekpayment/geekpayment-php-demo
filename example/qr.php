@@ -54,7 +54,7 @@ $input->setPrice("100");
 $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
 $input->setReturnUrl('https://demophp.geekpayment.com/example/success.php?order_id=' . strval($input->getOrderId()));
 
-$result = GeekPayApi::qrOrder($input);
+$result = GeekPayApi::qrOrder($input)->getBodyValues();
 $url2 = $result["qr_code"];
 $code_url = $result['code_img_url']
 

@@ -26,7 +26,7 @@ if (isset($_REQUEST["order_id"]) && $_REQUEST["order_id"] != "" && isset($_REQUE
     $input = new GeekPayQueryRefund();
     $input->setOrderId($_REQUEST["order_id"]);
     $input->setRefundId($_REQUEST["refund_id"]);
-    printf_info(GeekPayApi::refundQuery($input));
+    printf_info(GeekPayApi::refundQuery($input)->getBodyValues());
     exit();
 }
 

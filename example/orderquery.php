@@ -26,7 +26,7 @@ if (isset($_REQUEST["order_id"]) && $_REQUEST["order_id"] != "") {
     $out_trade_no = $_REQUEST["out_trade_no"];
     $input = new GeekPayOrderQuery();
     $input->setOrderId($_REQUEST["order_id"]);
-    printf_info(GeekPayApi::orderQuery($input));
+    printf_info(GeekPayApi::orderQuery($input)->getBodyValues());
     exit();
 }
 ?>

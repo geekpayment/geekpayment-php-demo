@@ -18,7 +18,7 @@ class GeekPayApi
      * 原生QR下单，nonce_str不需要填入
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result GeekPayResults 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function qrOrder($inputObj, $timeOut = 15)
@@ -38,7 +38,7 @@ class GeekPayApi
      * 通用下单，nonce_str不需要填入
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result array GeekPayResults 成功时返回，其他抛异常
+     * @return GeekPayResults $result GeekPayResults 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function commonOrder($inputObj, $timeOut = 10)
@@ -58,7 +58,7 @@ class GeekPayApi
      * 快捷支付下单，nonce_str不需要填入
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result array GeekPayResults 成功时返回，其他抛异常
+     * @return GeekPayResults $result GeekPayResults 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function cashierOrder($inputObj, $timeOut = 10)
@@ -79,7 +79,7 @@ class GeekPayApi
      * @param GeekPayMicropayOrder $inputObj
      * @param int $timeOut
      * @throws GeekPayException
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      */
     public static function micropayOrder($inputObj, $timeOut = 10)
     {
@@ -98,7 +98,7 @@ class GeekPayApi
      * 线下QRCode支付单，nonce_str、time不需要填入
      * @param GeekPayRetailQRCode $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function retailQRCodeOrder($inputObj, $timeOut = 10)
@@ -118,7 +118,7 @@ class GeekPayApi
      * 小程序支付单，nonce_str、time不需要填入(暂不支持)
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function microAppOrder($inputObj, $timeOut = 10)
@@ -138,7 +138,7 @@ class GeekPayApi
      * App嵌入支付单，nonce_str、time不需要填入
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function appOrder($inputObj, $timeOut = 10)
@@ -158,7 +158,7 @@ class GeekPayApi
      * H5支付单，nonce_str、time不需要填入
      * @param GeekPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function h5Order($inputObj, $timeOut = 10)
@@ -178,7 +178,7 @@ class GeekPayApi
      * 查询订单，nonce_str、time不需要填入
      * @param GeekPayOrderQuery $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function orderQuery($inputObj, $timeOut = 10)
@@ -198,7 +198,7 @@ class GeekPayApi
      * 申请退款，nonce_str、time不需要填入
      * @param GeekPayApplyRefund $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function refund($inputObj, $timeOut = 10)
@@ -219,7 +219,7 @@ class GeekPayApi
      * 查询退款状态，nonce_str、time不需要填入
      * @param GeekPayQueryRefund $inputObj
      * @param int $timeOut
-     * @return array $result 成功时返回，其他抛异常
+     * @return GeekPayResults $result 成功时返回，其他抛异常
      * @throws GeekPayException
      */
     public static function refundQuery($inputObj, $timeOut = 10)

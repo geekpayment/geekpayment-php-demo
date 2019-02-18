@@ -149,7 +149,7 @@ class GeekPayDataBase
         $pub_key_id = self::getPublicKey();
         error_log("sign_base:$signBase");
         error_log("public_key:$pub_key_id");
-        return openssl_verify($signBase, base64_decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256)===1;
+        return openssl_verify($signBase, urlsafe_b64decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256) === 1;
     }
 
     private function getPrivateKey()
@@ -159,8 +159,7 @@ class GeekPayDataBase
 
     private function getPublicKey()
     {
-        $pubKey = file_get_contents("file://".GeekPayConfig::getPublicKeyFile());
-        return openssl_get_publickey($pubKey);
+        return openssl_get_publickey("file://" . GeekPayConfig::getPublicKeyFile());
     }
 
     /**
@@ -185,6 +184,24 @@ class GeekPayDataBase
     public function getBodyValues()
     {
         return $this->bodyValues;
+    }
+
+    /**
+     * URL base64解码
+     * '-' -> '+'
+     * '_' -> '/'
+     * 字符串长度%4的余数，补'='
+     * @param string $string
+     * @return string decoded base64
+     */
+    private function urlsafe_b64decode($string)
+    {
+        $data = str_replace(array('-', '_'), array('+', '/'), $string);
+        $mod4 = strlen($data) % 4;
+        if ($mod4) {
+            $data .= substr('====', $mod4);
+        }
+        return base64_decode($data);
     }
 }
 
@@ -216,7 +233,7 @@ class GeekPayResults extends GeekPayDataBase
      * 将json转为array
      * @param string $json json data
      * @param string $url request url
-     * @return array
+     * @return GeekPayResults result
      *
      * 返回信息:
      * return_code          return_msg
@@ -228,7 +245,7 @@ class GeekPayResults extends GeekPayDataBase
         $obj = new self();
         error_log("GeekPayment response:$json");
         $obj->fromJson($json, $url);
-        return $obj->getBodyValues();
+        return $obj;
     }
 }
 

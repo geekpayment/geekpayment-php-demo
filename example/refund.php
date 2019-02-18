@@ -30,7 +30,7 @@ if(isset($_REQUEST["order_id"]) && $_REQUEST["order_id"] != "" && isset($_REQUES
 	$input->setOrderId($_REQUEST["order_id"]);
 	$input->setRefundId($_REQUEST["refund_id"]);
 	$input->setAmount($_REQUEST["fee"]);
-	printf_info(GeekPayApi::refund($input));
+	printf_info(GeekPayApi::refund($input)->getBodyValues());
 	exit();
 }
 ?>

@@ -54,7 +54,7 @@ $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
 $input->setReturnUrl('https://demophp.geekpayment.com/cn/example/success.php?order_id=' . strval($input->getOrderId()));
 $input->setOperator("123456");
 //支付下单
-$result = GeekPayApi::h5Order($input);
+$result = GeekPayApi::h5Order($input)->getBodyValues();
 
 ?>
 <font color="#9ACD32"><b>该笔订单支付金额为<span style="color:#f00;font-size:50px">1.00</span>元</b></font><br/><br/>

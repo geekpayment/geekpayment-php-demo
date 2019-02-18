@@ -29,7 +29,7 @@ $input->setDeviceId("18651874535");
 $input->setOperator("123456");
 
 //支付下单
-$result = GeekPayApi::retailQRCodeOrder($input);
+$result = GeekPayApi::retailQRCodeOrder($input)->getBodyValues();
 $url2 = $result["pay_url"];
 
 ?>
