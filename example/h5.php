@@ -51,7 +51,7 @@ $input->setTitle("test");
 $input->setPrice("100");
 $input->setChannel($channel);
 $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
-$input->setReturnUrl('https://demophp.geekpayment.com/cn/example/success.php?order_id=' . strval($input->getOrderId()));
+$input->setReturnUrl('https://demophp.geekpayment.com/example/success.php?order_id=' . strval($input->getOrderId()));
 $input->setOperator("123456");
 //支付下单
 $result = GeekPayApi::h5Order($input)->getBodyValues();
