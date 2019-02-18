@@ -149,7 +149,7 @@ class GeekPayDataBase
         $pub_key_id = self::getPublicKey();
         error_log("sign_base:$signBase");
         error_log("public_key:$pub_key_id");
-        return openssl_verify($signBase, urlsafe_b64decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256) === 1;
+        return openssl_verify($signBase, self::urlsafe_b64decode($sign), $pub_key_id, OPENSSL_ALGO_SHA256) === 1;
     }
 
     private function getPrivateKey()
