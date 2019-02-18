@@ -6,6 +6,9 @@
  * Time: 上午1:18
  */
 ini_set('date.timezone', 'Asia/Shanghai');
+require_once "../lib/GeekPay.Api.php";
+require_once 'Log.php';
+
 $input = new GeekPayOrderQuery();
 $input->setOrderId($_GET["order_id"]);
 $res = GeekPayApi::orderQuery($input);
