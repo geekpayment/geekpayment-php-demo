@@ -40,7 +40,7 @@ if(isset($_REQUEST["order_id"]) && $_REQUEST["order_id"] != "" && isset($_REQUES
         <input type="text" style="width:96%;height:35px;margin-left:2%;" name="order_id" /><br /><br />
 		<div style="margin-left:2%;">退款单号：</div><br/>
 		<input type="text" style="width:96%;height:35px;margin-left:2%;" name="refund_id" /><br /><br />
-        <div style="margin-left:2%;">退款金额(元)：</div><br/>
+        <div style="margin-left:2%;">退款金额(分)：</div><br/>
         <input type="text" style="width:96%;height:35px;margin-left:2%;" name="fee" /><br /><br />
 		<div align="center">
 			<input type="submit" value="提交退款" style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" />
