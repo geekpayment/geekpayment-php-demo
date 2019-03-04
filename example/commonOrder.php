@@ -43,6 +43,8 @@ $input->setTitle("test");
 $input->setPrice("100");
 $input->setNotifyUrl("https://demophp.geekpayment.com/example/notify.php");
 $input->setReturnUrl('https://demophp.geekpayment.com/example/success.php?order_id=' . strval($input->getOrderId()));
+$input->addGoods('测试商品');
+$input->setCustomerId('customer001');
 //支付下单
 $result = GeekPayApi::commonOrder($input)->getBodyValues();
 

@@ -317,7 +317,7 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
     }
 
     /**
-     * 设置金额，单位为货币最小单位
+     * 设置金额，单位为分
      * @param string $value
      **/
     public function setPrice($value)
@@ -326,8 +326,8 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
     }
 
     /**
-     * 获取金额，单位为货币最小单位
-     * @return 值
+     * 获取金额，单位为分
+     * @return int 值
      **/
     public function getPrice()
     {
@@ -344,9 +344,9 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
     }
 
     /**
-     * 设置支付渠道，Alipay为支付宝，Wechat为微信，大小写敏感
-     * 默认值: Wechat
-     * 允许值: Wechat, Alipay
+     * 设置支付渠道，alipay为支付宝，wechat为微信，大小写敏感
+     * 默认值: wechat
+     * 允许值: wechat, alipay
      **/
     public function setChannel($value)
     {
@@ -355,9 +355,9 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
 
     /**
      * 获取支付渠道
-     * 默认值: Wechat
-     * 允许值: Wechat, Alipay
-     * @return 值
+     * 默认值: wechat
+     * 允许值: wechat, alipay
+     * @return string 值
      **/
     public function getChannel()
     {
@@ -371,6 +371,60 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
     public function isChannelSet()
     {
         return array_key_exists('channel', $this->bodyValues);
+    }
+
+    /**
+     * 设置消费者id
+     * @param string $value
+     **/
+    public function setCustomerId($value)
+    {
+        $this->bodyValues['customer_id'] = $value;
+    }
+
+    /**
+     * 获取消费者id
+     * @return string 值
+     **/
+    public function getCustomerId()
+    {
+        return $this->bodyValues['customer_id'];
+    }
+
+    /**
+     * 判断消费者id是否存在
+     * @return true 或 false
+     **/
+    public function isCustomerIdSet()
+    {
+        return array_key_exists('customer_id', $this->bodyValues);
+    }
+
+    /**
+     * 设置消费者ip
+     * @param string $value
+     **/
+    public function setCustomerIp($value)
+    {
+        $this->bodyValues['customer_ip'] = $value;
+    }
+
+    /**
+     * 获取消费者ip
+     * @return string 值
+     **/
+    public function getCustomerIp()
+    {
+        return $this->bodyValues['customer_ip'];
+    }
+
+    /**
+     * 判断消费者ip是否存在
+     * @return true 或 false
+     **/
+    public function isCustomerIpSet()
+    {
+        return array_key_exists('customer_ip', $this->bodyValues);
     }
 
     /**
@@ -438,7 +492,7 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
 
     /**
      * 获取操作人员标识
-     * @return 值
+     * @return string 值
      **/
     public function getOperator()
     {
@@ -452,6 +506,30 @@ class GeekPayUnifiedOrder extends GeekPayDataBase
     public function isOperatorSet()
     {
         return array_key_exists('operator', $this->bodyValues);
+    }
+
+    /**
+     * 添加商品
+     * @param $goodsName string required,商品名称
+     * @param $goodsDesc string optional,商品简介
+     * @param $quantity int  optional,商品数量
+     */
+    public function addGoods($goodsName, $goodsDesc = null, $quantity = null)
+    {
+        $goods = $this->bodyValues['goods'];
+        if ($goods == null) {
+            $goods = array();
+        }
+        $goodsItem = array("name" => $goodsName);
+        if ($goodsDesc != null) {
+            $goodsItem['desc'] = $goodsDesc;
+        }
+        if ($quantity != null) {
+            $goodsItem['quantity'] = $quantity;
+        }
+        ksort($goodsItem);
+        $goods[] = $goodsItem;
+        $this->bodyValues['goods'] = $goods;
     }
 
 }
@@ -473,7 +551,7 @@ class GeekPayMicropayOrder extends GeekPayUnifiedOrder
 
     /**
      * 获取设备ID
-     * @return 值
+     * @return string 值
      **/
     public function getDeviceId()
     {
@@ -500,7 +578,7 @@ class GeekPayMicropayOrder extends GeekPayUnifiedOrder
 
     /**
      * 获取扫描用户微信客户端得到的支付码
-     * @return 值
+     * @return string 值
      **/
     public function getAuthCode()
     {
@@ -533,7 +611,7 @@ class GeekPayRetailQRCode extends GeekPayUnifiedOrder
 
     /**
      * 获取设备ID
-     * @return 值
+     * @return string 值
      **/
     public function getDeviceId()
     {
@@ -645,7 +723,7 @@ class GeekPayApplyRefund extends GeekPayDataBase
     }
 
     /**
-     * 设置退款金额，单位是货币最小单位
+     * 设置退款金额，单位是分
      * @param string $value
      **/
     public function setAmount($value)
@@ -655,7 +733,7 @@ class GeekPayApplyRefund extends GeekPayDataBase
 
     /**
      * 获取退款金额
-     * @return 值
+     * @return int 值
      **/
     public function getFee()
     {
@@ -750,7 +828,7 @@ class GeekPayQueryOrders extends GeekPayDataBase
 
     /**
      * 获取订单创建日期
-     * @return 值
+     * @return string 值
      **/
     public function getDate()
     {
@@ -782,7 +860,7 @@ class GeekPayQueryOrders extends GeekPayDataBase
 
     /**
      * 获取订单状态
-     * @return 值
+     * @return string 值
      **/
     public function getStatus()
     {
@@ -810,7 +888,7 @@ class GeekPayQueryOrders extends GeekPayDataBase
 
     /**
      * 获取页码
-     * @return 值
+     * @return int 值
      **/
     public function getPage()
     {
@@ -838,7 +916,7 @@ class GeekPayQueryOrders extends GeekPayDataBase
 
     /**
      * 获取每页条数
-     * @return 值
+     * @return int 值
      **/
     public function getLimit()
     {
@@ -872,7 +950,7 @@ class GeekPayQueryTransactions extends GeekPayDataBase
 
     /**
      * 获取订单创建日期
-     * @return 值
+     * @return string 值
      **/
     public function getDate()
     {
